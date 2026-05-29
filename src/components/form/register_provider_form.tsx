@@ -136,7 +136,7 @@ export default function ProviderRegisterForm() {
 
                                 <select
                                     id="providerType"
-                                    className="w-full h-[52px] border border-[#D8D1E6] rounded-[12px] px-4 text-[14px] outline-none"
+                                    className="custom-select w-full h-[52px] border border-[#D8D1E6] rounded-[12px] px-4 pr-10 text-[14px] outline-none"
                                 >
                                     <option>Cá nhân</option>
                                     <option>Nhà vườn</option>

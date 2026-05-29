@@ -8,7 +8,8 @@ import {
     User,
     Leaf,
 } from 'lucide-react';
-
+import Link from 'next/link';
+import LoginLink from '../../app/(auth)/login/login_route';
 export default function CustomerRegisterForm() {
     return (
         <div className="min-h-screen bg-[#F4F2FA] flex items-center justify-center px-6 py-10">
@@ -184,9 +185,9 @@ export default function CustomerRegisterForm() {
                     <div className="mt-8 pt-6 border-t border-[#ECE8F5] text-center">
                         <p className="text-[14px] text-[#6B7280]">
                             Đã có tài khoản?{' '}
-                            <span className="text-[#6D28D9] font-semibold cursor-pointer hover:underline">
+                            <LoginLink className="text-[#6D28D9] font-semibold cursor-pointer hover:underline">
                                 Đăng nhập
-                            </span>
+                            </LoginLink>
                         </p>
                     </div>
                 </div>

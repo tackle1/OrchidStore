@@ -17,7 +17,7 @@ export default function CustomerRegisterUI() {
                         alt="Orchid"
                         fill
                         priority
-                        quality={100}
+                        quality={75}
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         className="object-cover"
                     />

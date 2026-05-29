@@ -4,6 +4,7 @@ import { User, StoreIcon, Settings } from 'lucide-react';
 import Image from 'next/image';
 import './role-selection.css';
 
+import LoginLink from '../../app/(auth)/login/login_route';
 type RoleSelectionProps = {
     onCustomerClick?: () => void;
     onProviderClick?: () => void;
@@ -105,7 +106,11 @@ export default function RoleSelectionUI({
                             {/* LOGIN */}
                             <div className="text-center mt-8 text-[13px] text-[#6B7280]">
                                 Đã có tài khoản?{' '}
-                                <a href="/login" className="text-[#4F46E5] font-semibold hover:underline">Đăng nhập</a>
+                                <LoginLink
+                                    className="text-[#4F46E5] font-semibold hover:underline"
+                                >
+                                    Đăng nhập
+                                </LoginLink>
                             </div>
 
                         </div>

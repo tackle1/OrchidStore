@@ -34,14 +34,14 @@ export default function ProviderBasicInfoStep() {
                 <div>
                     <label
                         htmlFor="providerType"
-                        className="block text-[13px] font-medium text-[#4B5563] mb-2"
+                        className=" block text-[13px] font-medium text-[#4B5563] mb-2"
                     >
                         Loại hình hoạt động
                     </label>
 
                     <select
                         id="providerType"
-                        className="w-full h-[52px] border border-[#D8D1E6] rounded-[12px] px-4 pr-10 text-[14px] outline-none"
+                        className="custom-select w-full h-[52px] border border-[#D8D1E6] rounded-[12px] px-4 pr-10 text-[14px] outline-none"
                     >
                         <option>Cá nhân</option>
                         <option>Nhà vườn</option>

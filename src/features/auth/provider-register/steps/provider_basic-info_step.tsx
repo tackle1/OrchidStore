@@ -34,7 +34,7 @@ export default function ProviderBasicInfoStep() {
                 <div>
                     <label
                         htmlFor="providerType"
-                        className="block text-[13px] font-medium text-[#4B5563] mb-2"
+                        className=" block text-[13px] font-medium text-[#4B5563] mb-2"
                     >
                         Loại hình hoạt động
                     </label>

@@ -3,8 +3,13 @@
 import React, { useState } from 'react';
 import { EyeOff, Flower2 } from 'lucide-react';
 import Link from 'next/link';
+
 import ForgetPasswordLink from '../../app/(auth)/forgot-password/forget_route';
+import { useLogin } from '../../hooks/useLogin';
+
 export default function LoginForm() {
+    const { handleLogin } = useLogin();
+
     const [formData, setFormData] = useState({
         emailOrPhone: '',
         password: '',
@@ -20,15 +25,23 @@ export default function LoginForm() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(formData);
+
+        try {
+            await handleLogin(
+                formData.emailOrPhone,
+                formData.password
+            );
+        } catch (error) {
+            if (error instanceof Error) {
+                alert(error.message);
+            }
+        }
     };
 
     return (
         <div className="min-h-screen bg-[#F6F4FB] flex items-center justify-center px-6">
-
-            {/* CARD */}
             <div className="w-full max-w-[430px] bg-white rounded-[28px] border border-[#ECE8F5] shadow-[0_10px_40px_rgba(17,24,39,0.05)] px-7 pt-8 pb-7">
 
                 {/* LOGO */}
@@ -52,7 +65,7 @@ export default function LoginForm() {
                 </div>
 
                 {/* FORM */}
-                <form onSubmit={handleSubmit} className="mt-8">
+                <form onSubmit={onSubmit} className="mt-8">
 
                     {/* EMAIL */}
                     <div>
@@ -157,8 +170,10 @@ export default function LoginForm() {
                 <div className="mt-8 text-center">
                     <p className="text-[14px] text-[#6B7280]">
                         Chưa có tài khoản?{' '}
-
-                        <Link href="/register/customer" className="text-[#6D28D9] font-semibold hover:underline">
+                        <Link
+                            href="/register/customer"
+                            className="text-[#6D28D9] font-semibold hover:underline"
+                        >
                             Đăng ký
                         </Link>
                     </p>

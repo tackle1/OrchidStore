@@ -1,15 +1,18 @@
 import { create } from 'zustand';
 
+export type UserRole = 'CUSTOMER' | 'PROVIDER' | 'ADMIN';
+
 interface User {
   id: string;
   name: string;
   email: string;
-  role: 'CUSTOMER' | 'PROVIDER' | 'ADMIN';
+  role: UserRole;
 }
 
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
+
   login: (user: User) => void;
   logout: () => void;
 }
@@ -17,6 +20,16 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
-  login: (user) => set({ user, isAuthenticated: true }),
-  logout: () => set({ user: null, isAuthenticated: false }),
+
+  login: (user) =>
+    set({
+      user,
+      isAuthenticated: true,
+    }),
+
+  logout: () =>
+    set({
+      user: null,
+      isAuthenticated: false,
+    }),
 }));

@@ -2,8 +2,8 @@
 
 import ProviderNavbar from '../layout/provider_navbar';
 import ProviderSidebar from '../layout/provider_sidebar';
-import DashboardHeader from '../layout/dashboard_header';
-import StatsCards from '../layout/stats_cards';
+import DashboardHeader from '../layout/provider-dashboard_header';
+import StatsCards from '../layout/provider-stats_cards';
 import TodayTasksCard from '../layout/today_tasks_card';
 import BookingRequestsCard from '../layout/booking_requests_card';
 import RevenueCard from '../layout/revenue_card';

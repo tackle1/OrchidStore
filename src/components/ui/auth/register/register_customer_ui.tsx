@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import CustomerRegisterForm from '../form/register_customer_form';
+import CustomerRegisterForm from '../../../form/register_customer_form';
 
 export default function CustomerRegisterUI() {
     return (

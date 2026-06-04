@@ -1,6 +1,6 @@
-import ProviderRegisterNavbar from '@/src/components/layout/register_provider_navbar';
+import ProviderRegisterNavbar from '@/src/components/common/navbar/register_provider_navbar';
 import ProviderRegisterUI from '../../../components/form/register_provider_form';
-import ProviderRegisterFooter from "../../../components/layout/footer";
+import ProviderRegisterFooter from "../../../components/common/footer/footer";
 export default function ProviderRegisterPage() {
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">

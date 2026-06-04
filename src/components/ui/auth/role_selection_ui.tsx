@@ -4,7 +4,7 @@ import { User, StoreIcon, Settings } from 'lucide-react';
 import Image from 'next/image';
 import './role-selection.css';
 
-import LoginLink from '../../app/(auth)/login/login_route';
+import LoginLink from '../../../app/(auth)/login/login_route';
 type RoleSelectionProps = {
     onCustomerClick?: () => void;
     onProviderClick?: () => void;

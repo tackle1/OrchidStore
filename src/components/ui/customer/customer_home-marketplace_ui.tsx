@@ -1,9 +1,9 @@
 'use client';
 
-import CustomerSidebar from '../layout/customer_sidebar';
-import CustomerNavbar from '../layout/customer_navbar';
-import HeroOverlay from '../layout/hero_overlay';
-import QuickTags from '../layout/quick-tag';
+import CustomerSidebar from '../../common/sidebar/customer_sidebar';
+import CustomerNavbar from '../../common/navbar/customer_navbar';
+import HeroOverlay from '../../layout/customer/home-marketplace/hero_overlay';
+import QuickTags from '../../layout/customer/home-marketplace/quick-tag';
 export default function CustomerHomePageUI() {
 
     return (

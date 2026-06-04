@@ -1,13 +1,13 @@
 'use client';
 
-import AdminNavbar from '../layout/admin-navbar';
-import AdminSidebar from '../layout/admin-sidebar';
-import DashboardHeader from '../layout/admin-dashboard_header';
-import StatsCards from '../layout/admin-stats_cards';
-import RevenueChart from '../layout/revenue_chart';
-import RecentTransactions from '../layout/recent-transactions';
-import LatestDisputes from '../layout/latest-dispute';
-import PendingProviders from '../layout/pending-providers';
+import AdminNavbar from '../../common/navbar/admin_navbar';
+import AdminSidebar from '../../common/sidebar/admin_sidebar';
+import DashboardHeader from '../../common/header/admin-dashboard_header';
+import StatsCards from '../../layout/admin/dashboard/admin-stats_cards';
+import RevenueChart from '../../layout/admin/dashboard/revenue_chart';
+import RecentTransactions from '../../layout/admin/dashboard/recent-transactions';
+import LatestDisputes from '../../layout/admin/dashboard/latest-dispute';
+import PendingProviders from '../../layout/admin/dashboard/pending-providers';
 
 export default function AdminDashboardUI() {
     return (

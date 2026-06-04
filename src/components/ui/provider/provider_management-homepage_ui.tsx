@@ -1,13 +1,13 @@
 'use client';
 
-import ProviderNavbar from '../layout/provider_navbar';
-import ProviderSidebar from '../layout/provider_sidebar';
-import DashboardHeader from '../layout/provider-dashboard_header';
-import StatsCards from '../layout/provider-stats_cards';
-import TodayTasksCard from '../layout/today_tasks_card';
-import BookingRequestsCard from '../layout/booking_requests_card';
-import RevenueCard from '../layout/revenue_card';
-import ScheduleCalendarCard from '../layout/schedule_calendar_card';
+import ProviderNavbar from '../../common/navbar/provider_navbar';
+import ProviderSidebar from '../../common/sidebar/provider_sidebar';
+import DashboardHeader from '../../common/header/provider-dashboard_header';
+import StatsCards from '../../layout/provider/management-homepage/provider-stats_cards';
+import TodayTasksCard from '../../layout/provider/management-homepage/today_tasks_card';
+import BookingRequestsCard from '../../layout/provider/management-homepage/booking_requests_card';
+import RevenueCard from '../../layout/provider/management-homepage/revenue_card';
+import ScheduleCalendarCard from '../../layout/provider/management-homepage/schedule_calendar_card';
 
 export default function ProviderManagementHomepageUI() {
     return (

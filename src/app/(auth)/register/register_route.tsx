@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import RoleSelectionUI from '../../../components/ui/role_selection_ui';
+import RoleSelectionUI from '../../../components/ui/auth/role_selection_ui';
 
 export default function RoleRegistration() {
     const router = useRouter();

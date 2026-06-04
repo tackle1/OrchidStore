@@ -1,5 +1,5 @@
 'use client';
-import ProviderRegisterForm from "../../components/form/register_provider_form";
+import ProviderRegisterForm from "../../../../components/form/register_provider_form";
 
 
 export default function ProviderRegisterUI() {

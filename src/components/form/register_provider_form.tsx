@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 
-import ProviderStepper from '../../features/auth/provider-register/components/provider_stepper';
-import ProviderFooterActions from '../../features/auth/provider-register/components/provider_footer-actions';
-import ProviderBasicInfoStep from '../../features/auth/provider-register/steps/provider_basic-info_step';
-import ProviderServiceProfileStep from '../../features/auth/provider-register/steps/provider_service-profile_step';
-import ProviderVerificationStep from '../../features/auth/provider-register/steps/provider_verification_step';
-import ProviderSubmitStep from '../../features/auth/provider-register/steps/provider_approval-submit_step';
+import ProviderStepper from '../../content/auth/provider-register/components/provider_stepper';
+import ProviderFooterActions from '../../content/auth/provider-register/components/provider_footer-actions';
+import ProviderBasicInfoStep from '../../content/auth/provider-register/steps/provider_basic-info_step';
+import ProviderServiceProfileStep from '../../content/auth/provider-register/steps/provider_service-profile_step';
+import ProviderVerificationStep from '../../content/auth/provider-register/steps/provider_verification_step';
+import ProviderSubmitStep from '../../content/auth/provider-register/steps/provider_approval-submit_step';
 
 export default function ProviderRegisterForm() {
     const [currentStep, setCurrentStep] = useState(1);

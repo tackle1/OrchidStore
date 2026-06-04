@@ -1,4 +1,4 @@
-import ProviderApproval from "../../../features/admin/providers/provider-approval";
+import ProviderApproval from "../../../content/admin/providers/provider-approval";
 
 export default function ProviderApprovalPageContainer() {
     return (

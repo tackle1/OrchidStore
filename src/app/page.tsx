@@ -1,4 +1,4 @@
-import RoleSelection from '../features/auth/page/role_selection';
+import RoleSelection from '../content/auth/page/role_selection';
 
 export default function Home() {
   return <RoleSelection />;

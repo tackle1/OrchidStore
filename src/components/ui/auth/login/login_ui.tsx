@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import LoginForm from '../form/login_form';
+import LoginForm from '../../../form/login_form';
 
 export default function LoginUI() {
     return (

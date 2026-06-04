@@ -16,6 +16,7 @@ export default function AdminLayout({
 
     const adminRoutes = [
         '/dashboard',
+        '/provider-approval'
     ];
 
     useEffect(() => {
@@ -35,6 +36,9 @@ export default function AdminLayout({
 
         if (!isAllowedRoute) {
             router.replace('/dashboard');
+        }
+        if (!isAllowedRoute) {
+            router.replace('/provider-approval');
         }
     }, [user, isAuthenticated, pathname, router]);
 

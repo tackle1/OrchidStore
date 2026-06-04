@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
     LayoutGrid,
-    Home,
+    Store,
     Scale,
     FileText,
     Tag,
@@ -15,16 +16,23 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-    { icon: LayoutGrid, label: "Tổng quan", active: true },
-    { icon: Home, label: "Nhà cung cấp", active: false },
-    { icon: Scale, label: "Tranh chấp", active: false },
-    { icon: FileText, label: "Giao dịch", active: false },
-    { icon: Tag, label: "Danh mục", active: false },
-    { icon: BarChart3, label: "Báo cáo", active: false },
-    { icon: Users, label: "Người dùng", active: false },
+    { icon: LayoutGrid, label: "Tổng quan", href: "/dashboard" },
+    { icon: Store, label: "Nhà cung cấp", href: "/provider-approval" },
+    { icon: Scale, label: "Tranh chấp", href: "/admin/disputes" },
+    { icon: FileText, label: "Giao dịch", href: "/admin/transactions" },
+    { icon: Tag, label: "Danh mục", href: "/admin/categories" },
+    { icon: BarChart3, label: "Báo cáo", href: "/admin/reports" },
+    { icon: Users, label: "Người dùng", href: "/admin/users" },
 ];
 
 export default function AdminSidebar() {
+    const pathname = usePathname(); // Lấy đường dẫn hiện tại
+
+    const handleLogout = () => {
+        // TODO: Xử lý đăng xuất
+        console.log("Đăng xuất");
+    };
+
     return (
         <aside className="w-[220px] bg-white border-r border-gray-200 flex flex-col min-h-screen">
             {/* Logo */}
@@ -58,19 +66,24 @@ export default function AdminSidebar() {
             {/* Menu */}
             <nav className="flex-1 px-3 py-2">
                 <ul className="space-y-1">
-                    {menuItems.map((item, index) => (
-                        <li key={index}>
-                            <button
-                                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${item.active
-                                    ? "bg-[#7C3AED] text-[#EDE0FF] border-l-4 border-[#630ED4]"
-                                    : "text-gray-600 hover:bg-gray-100"
-                                    }`}
-                            >
-                                <item.icon className="w-5 h-5" />
-                                <span>{item.label}</span>
-                            </button>
-                        </li>
-                    ))}
+                    {menuItems.map((item, index) => {
+                        const isActive = pathname === item.href; // Kiểm tra link đang active
+
+                        return (
+                            <li key={index}>
+                                <Link
+                                    href={item.href}
+                                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${isActive
+                                            ? "bg-[#7C3AED] text-white border-l-4 border-[#630ED4]"
+                                            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                        }`}
+                                >
+                                    <item.icon className="w-5 h-5" />
+                                    <span>{item.label}</span>
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
             </nav>
 
@@ -87,11 +100,18 @@ export default function AdminSidebar() {
 
                 {/* Settings & Logout */}
                 <div className="space-y-1">
-                    <button className="w-full flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg text-sm font-medium transition-colors">
+                    <Link
+                        href="/admin/settings"
+                        className="w-full flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-lg text-sm font-medium transition-colors"
+                    >
                         <Settings className="w-5 h-5" />
                         <span>Cài đặt</span>
-                    </button>
-                    <button className="w-full flex items-center gap-3 px-3 py-2.5 text-red-500 hover:bg-red-50 rounded-lg text-sm font-medium transition-colors">
+                    </Link>
+
+                    <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center gap-3 px-3 py-2.5 text-red-500 hover:bg-red-50 rounded-lg text-sm font-medium transition-colors"
+                    >
                         <LogOut className="w-5 h-5" />
                         <span>Đăng xuất</span>
                     </button>

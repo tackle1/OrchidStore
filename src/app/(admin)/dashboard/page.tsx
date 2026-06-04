@@ -1,4 +1,4 @@
-import AdminDashboard from "../../../features/admin/dashboard/admin_dashboard";
+import AdminDashboard from "../../../content/admin/dashboard/admin_dashboard_page";
 
 export default function AdminDashboardPageContainer() {
     return (

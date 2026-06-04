@@ -8,7 +8,6 @@ import {
     User,
     Leaf,
 } from 'lucide-react';
-import Link from 'next/link';
 import LoginLink from '../../app/(auth)/login/login_route';
 export default function CustomerRegisterForm() {
     return (

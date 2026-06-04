@@ -1,4 +1,4 @@
-import ProviderManagementHomePage from "../../../features/provider/management-homepage/management-homepage";
+import ProviderManagementHomePage from "../../../content/provider/management-homepage/management-homepage_page";
 export default function ProviderManagementHomePageContainer() {
     return (
         <ProviderManagementHomePage />

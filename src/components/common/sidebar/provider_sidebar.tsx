@@ -12,8 +12,20 @@ import {
     Plus,
 } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function ProviderSidebar() {
+    const pathname = usePathname();
+
+    const menuItems = [
+        { icon: LayoutGrid, label: "Bảng điều khiển", href: "/management-homepage" },
+        { icon: ShoppingBasket, label: "Gói chăm sóc", href: "/service-packages" },
+        { icon: Store, label: "Nhà vườn liên kết", href: "/provider/partners" },
+        { icon: Flower2, label: "Lan của tôi", href: "/provider/my-orchids" },
+        { icon: History, label: "Lịch sử chăm sóc", href: "/provider/history" },
+        { icon: Sprout, label: "Hỗ trợ chuyên gia", href: "/provider/support" },
+    ];
+
     return (
         <aside className="w-[220px] min-h-screen bg-white border-r border-[#E5E7EB] flex flex-col">
 
@@ -37,57 +49,33 @@ export default function ProviderSidebar() {
             {/* MENU */}
             <nav className="mt-4 px-3 flex-1">
                 <ul className="space-y-1">
+                    {menuItems.map((item, index) => {
+                        const isActive =
+                            pathname === item.href ||
+                            pathname.startsWith(item.href + '/');
 
-                    {/* ACTIVE ITEM */}
-                    <li>
-                        <Link
-                            href="/management-homepage"
-                            className="flex items-center gap-3 h-[40px] px-4 rounded-r-[18px] rounded-l-[6px] 
-                                       bg-[#EDEBF7] border-l-[5px] border-[#6D28D9] text-[#6D28D9]"
-                        >
-                            <LayoutGrid size={17} />
-                            <span className="text-[13px] font-semibold">Bảng điều khiển</span>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link href="/provider/packages" className="flex items-center gap-3 h-[40px] px-4 rounded-lg hover:bg-[#F8F7FA] text-[#4B4453] transition-colors">
-                            <ShoppingBasket size={17} />
-                            <span className="text-[13px]">Gói chăm sóc</span>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link href="/provider/partners" className="flex items-center gap-3 h-[40px] px-4 rounded-lg hover:bg-[#F8F7FA] text-[#4B4453] transition-colors">
-                            <Store size={17} />
-                            <span className="text-[13px]">Nhà vườn liên kết</span>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link href="/provider/my-orchids" className="flex items-center gap-3 h-[40px] px-4 rounded-lg hover:bg-[#F8F7FA] text-[#4B4453] transition-colors">
-                            <Flower2 size={17} />
-                            <span className="text-[13px]">Lan của tôi</span>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link href="/provider/history" className="flex items-center gap-3 h-[40px] px-4 rounded-lg hover:bg-[#F8F7FA] text-[#4B4453] transition-colors">
-                            <History size={17} />
-                            <span className="text-[13px]">Lịch sử chăm sóc</span>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link href="/provider/support" className="flex items-center gap-3 h-[40px] px-4 rounded-lg hover:bg-[#F8F7FA] text-[#4B4453] transition-colors">
-                            <Sprout size={17} />
-                            <span className="text-[13px]">Hỗ trợ chuyên gia</span>
-                        </Link>
-                    </li>
+                        return (
+                            <li key={index}>
+                                <Link
+                                    href={item.href}
+                                    className={`
+                                        flex items-center gap-3 h-[40px] px-4 rounded-lg text-[13px] font-medium transition-all duration-200
+                                        ${isActive
+                                            ? "bg-[#EDEBF7] border-l-[5px] border-[#6D28D9] text-[#6D28D9] font-semibold"
+                                            : "text-[#4B4453] hover:bg-[#F8F7FA] hover:text-[#1F2937]"
+                                        }
+                                    `}
+                                >
+                                    <item.icon size={17} />
+                                    <span>{item.label}</span>
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
             </nav>
 
-            {/* REGISTER BUTTON - Bo nhẹ hơn */}
+            {/* REGISTER BUTTON */}
             <div className="px-4 py-3">
                 <Link
                     href="/provider/register-care"
@@ -100,12 +88,18 @@ export default function ProviderSidebar() {
 
             {/* BOTTOM MENU */}
             <div className="mt-auto border-t border-[#E5E7EB] py-2">
-                <Link href="/provider/settings" className="flex items-center gap-3 h-[40px] px-4 text-[#4B4453] hover:bg-[#F8F7FA] rounded-lg transition-colors">
+                <Link
+                    href="/provider/settings"
+                    className="flex items-center gap-3 h-[40px] px-4 text-[#4B4453] hover:bg-[#F8F7FA] hover:text-[#1F2937] rounded-lg transition-colors"
+                >
                     <Settings size={17} />
                     <span className="text-[13px]">Cài đặt</span>
                 </Link>
 
-                <Link href="/login" className="flex items-center gap-3 h-[40px] px-4 text-[#4B4453] hover:bg-[#F8F7FA] rounded-lg transition-colors">
+                <Link
+                    href="/login"
+                    className="flex items-center gap-3 h-[40px] px-4 text-[#4B4453] hover:bg-[#F8F7FA] hover:text-[#1F2937] rounded-lg transition-colors"
+                >
                     <LogOut size={17} />
                     <span className="text-[13px]">Đăng xuất</span>
                 </Link>

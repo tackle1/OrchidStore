@@ -16,6 +16,8 @@ export default function CustomerLayout({
 
     const customerRoutes = [
         '/home-marketplace',
+        '/customer-service-packages',
+        '/customer-service-packages/service-discovery',
     ];
 
     useEffect(() => {
@@ -30,7 +32,7 @@ export default function CustomerLayout({
         }
 
         const isAllowedRoute = customerRoutes.some((route) =>
-            pathname.startsWith(route)
+            pathname === route || pathname.startsWith(route + '/')
         );
 
         if (!isAllowedRoute) {

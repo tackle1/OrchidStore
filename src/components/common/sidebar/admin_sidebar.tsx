@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -27,9 +27,9 @@ const menuItems = [
 
 export default function AdminSidebar() {
     const pathname = usePathname(); // Lấy đường dẫn hiện tại
-
+    const router = useRouter();
     const handleLogout = () => {
-        // TODO: Xử lý đăng xuất
+        router.push("/login");
         console.log("Đăng xuất");
     };
 
@@ -67,15 +67,16 @@ export default function AdminSidebar() {
             <nav className="flex-1 px-3 py-2">
                 <ul className="space-y-1">
                     {menuItems.map((item, index) => {
-                        const isActive = pathname === item.href; // Kiểm tra link đang active
-
+                        const isActive =
+                            pathname === item.href ||
+                            pathname.startsWith(item.href + '/');
                         return (
                             <li key={index}>
                                 <Link
                                     href={item.href}
                                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${isActive
-                                            ? "bg-[#7C3AED] text-white border-l-4 border-[#630ED4]"
-                                            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                        ? "bg-[#7C3AED] text-white border-l-4 border-[#630ED4]"
+                                        : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                                         }`}
                                 >
                                     <item.icon className="w-5 h-5" />

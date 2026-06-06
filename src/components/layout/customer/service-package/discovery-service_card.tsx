@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Clock, FileText, Star, CheckCircle, Gem } from 'lucide-react';
 
 interface DiscoveryServiceCardProps {
+    id: string;                           // ← id bắt buộc
     image: string;
     title: string;
     provider: string;
@@ -13,11 +14,11 @@ interface DiscoveryServiceCardProps {
     duration: string;
     reportFrequency: string;
     price: string;
-    href: string;
     badge?: string;
 }
 
 export default function DiscoveryServiceCard({
+    id,
     image,
     title,
     provider,
@@ -27,11 +28,14 @@ export default function DiscoveryServiceCard({
     duration,
     reportFrequency,
     price,
-    href,
     badge,
 }: DiscoveryServiceCardProps) {
+
+    // Tạo link động dựa trên id
+    const detailsHref = `/customer-service-packages/service-discovery/${id}/details`;
+
     return (
-        <Link href={href} className="group block">
+        <Link href={detailsHref} className="group block">
             <div className="bg-white border border-[#E5E7EB] rounded-3xl overflow-hidden hover:shadow-md transition-all duration-300">
 
                 {/* Image */}
@@ -42,7 +46,7 @@ export default function DiscoveryServiceCard({
                         className="w-full h-full object-cover"
                     />
 
-                    {/* Badge với icon Gem */}
+                    {/* Badge */}
                     {badge && (
                         <div className="absolute top-3 right-3">
                             <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium bg-white text-[#6D28D9] rounded-full shadow-sm">
@@ -61,7 +65,6 @@ export default function DiscoveryServiceCard({
                         <div className="flex items-center gap-2">
                             <span className="text-sm text-[#374151]">{provider}</span>
 
-                            {/* Đã xác minh */}
                             {isVerified && (
                                 <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-[#D1FAE5] text-[#065F46] rounded-full mr-2">
                                     <CheckCircle className="w-3 h-3" />
@@ -84,13 +87,18 @@ export default function DiscoveryServiceCard({
 
                     {/* Info Tags */}
                     <div className="flex items-center gap-2 mb-4">
-                        <div className="flex items-center gap-1.5 px-3 py-1 bg-[#F3F4F6] rounded-full text-xs text-[#4B5563]">
+                        <div className="flex items-center gap-1.5 px-3 py-1 bg-[#F2F3FF] rounded-full text-xs text-[#630ED4]">
                             <Clock className="w-3.5 h-3.5" />
-                            {duration}
+                            <p className='text-[#4A4455]'>
+                                {duration}
+                            </p>
                         </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1 bg-[#F3F4F6] rounded-full text-xs text-[#4B5563]">
+                        <div className="flex items-center gap-1.5 px-3 py-1 bg-[#F2F3FF] rounded-full text-xs text-[#630ED4]">
                             <FileText className="w-3.5 h-3.5" />
-                            {reportFrequency}
+                            <p className='text-[#4A4455]'>
+                                {reportFrequency}
+                            </p>
+
                         </div>
                     </div>
 
@@ -98,15 +106,18 @@ export default function DiscoveryServiceCard({
                     <div className="flex items-center justify-between pt-2 border-t border-[#E5E7EB]">
                         <div>
                             <p className="text-xs text-[#6B7280]">Giá từ</p>
-                            <p className="text-[15px] font-bold text-[#1F2937]">{price}</p>
+                            <span className='w-[flex] inline-flex items-end gap-1'>
+                                <p className="text-[clamp(18px, 5vw, 20px)] leading-[20px] font-bold text-[#630ED4] tracking-[-0.5px]">{price} </p>
+                                <p className='text-[14px]'>
+                                    /tháng
+                                </p>
+                            </span>
                         </div>
 
-                        <button
-                            className="px-5 py-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white text-sm font-semibold rounded-xl transition-colors"
-                            onClick={(e) => e.preventDefault()}
-                        >
+                        {/* Nút Xem chi tiết (vẫn nằm trong Link nên sẽ chuyển trang) */}
+                        <span className="px-4 py-2 mt-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white text-center text-sm font-semibold rounded-xl transition-colors">
                             Xem chi tiết
-                        </button>
+                        </span>
                     </div>
                 </div>
             </div>

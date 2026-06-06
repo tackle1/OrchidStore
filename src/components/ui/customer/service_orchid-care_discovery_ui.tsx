@@ -38,6 +38,7 @@ export default function CustomerOrchidCareDiscoveryUI() {
 
                                 {/* Card 1 - Giống hình bên trái */}
                                 <DiscoveryServiceCard
+                                    id="1"
                                     image="/assets/images/orchid-greenhouse.jpg"
                                     title="Gói Chăm Sóc Toàn Diện Cho Lan Rừng Quý Hiếm"
                                     provider="Vườn Lan Ngọc Châu"
@@ -46,13 +47,13 @@ export default function CustomerOrchidCareDiscoveryUI() {
                                     reviewCount={124}
                                     duration="6 Tháng"
                                     reportFrequency="Báo cáo 2 tuần/lần"
-                                    price="1.500.000đ /tháng"
+                                    price="1.500.000đ"
                                     badge="Lan Đột Biến"
-                                    href="/customer-service-packages/service-discovery/1"
                                 />
 
                                 {/* Card 2 - Giống hình bên phải */}
                                 <DiscoveryServiceCard
+                                    id="2"
                                     image="/assets/images/orchid-expert.jpg"
                                     title="Phục Hồi Sức Khỏe Lan Hồ Điệp Sau Tết"
                                     provider="Chuyên gia: Trần Minh"
@@ -61,8 +62,7 @@ export default function CustomerOrchidCareDiscoveryUI() {
                                     reviewCount={86}
                                     duration="3 Tháng"
                                     reportFrequency="Báo cáo hàng tuần"
-                                    price="800.000đ /tháng"
-                                    href="customer-service-packages/service-discovery/2"
+                                    price="800.000đ"
                                 />
                             </div>
                         </div>

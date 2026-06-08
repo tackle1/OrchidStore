@@ -18,6 +18,7 @@ export default function CustomerLayout({
         '/home-marketplace',
         '/customer-service-packages',
         '/customer-service-packages/service-discovery',
+        '/providers',
     ];
 
     useEffect(() => {

@@ -16,7 +16,7 @@ export default function CustomerSidebar() {
     const menuItems = [
         { icon: LayoutDashboard, label: "Bảng điều khiển", href: "/home-marketplace" },
         { icon: PackageCheck, label: "Gói chăm sóc", href: "/customer-service-packages" },
-        { icon: Store, label: "Nhà vườn liên kết", href: "/customer/partners" },
+        { icon: Store, label: "Nhà vườn liên kết", href: "/providers" },
         { icon: Flower2, label: "Lan của tôi", href: "/customer/my-orchids" },
         { icon: History, label: "Lịch sử chăm sóc", href: "/customer/history" },
     ];

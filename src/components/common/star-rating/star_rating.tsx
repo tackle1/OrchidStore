@@ -55,5 +55,5 @@ export default function StarRating({ rating, size = 16 }: StarRatingProps) {
         );
     }
 
-    return <div className="flex items-center gap-0.5">{stars}</div>;
+    return <div className="flex items-center gap-1">{stars}</div>;
 }

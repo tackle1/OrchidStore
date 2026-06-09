@@ -16,15 +16,19 @@ import { servicePackages } from '../../../data/servicePackages';
 
 export default function ServicePackageDetailsUI() {
     const params = useParams();
-    const packageId = params.id as string;
+    const slug = params.slug as string;           // ← Đổi từ id sang slug
 
-    const service = servicePackages.find((item) => item.id === packageId);
+    // Tìm gói dịch vụ theo slug thay vì id
+    const service = servicePackages.find((item) => item.slug === slug);
 
     if (!service) {
         return (
             <div className="max-w-7xl mx-auto p-6 text-center">
                 <h1 className="text-2xl font-bold text-red-500">Không tìm thấy gói dịch vụ</h1>
-                <Link href="/customer/service-discovery" className="text-[#6D28D9] mt-4 inline-block">
+                <Link
+                    href="/customer-service-packages/service-discovery"
+                    className="text-[#6D28D9] mt-4 inline-block"
+                >
                     Quay lại trang khám phá
                 </Link>
             </div>
@@ -76,16 +80,14 @@ export default function ServicePackageDetailsUI() {
                                 price={service.price}
                                 duration={service.duration}
                                 reportFrequency={service.reportFrequency}
-                                packageId={packageId}
+                                packageSlug={slug}
                             />
                         </div>
                     </div>
 
-                    {/* ==================== ĐÁNH GIÁ TỪ KHÁCH HÀNG (ĐẶT DƯỚI CÙNG) ==================== */}
+                    {/* ĐÁNH GIÁ TỪ KHÁCH HÀNG */}
                     <div className="mt-8">
-                        {/* Divider */}
                         <div className="h-px bg-gray-200 my-6" />
-
                         <CustomerServicePackagesReviews feedbacks={service.feedbacks} />
                     </div>
                 </div>

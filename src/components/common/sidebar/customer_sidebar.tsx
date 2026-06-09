@@ -6,6 +6,7 @@ import {
     Store,
     Flower2,
     History,
+    Star
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,6 +18,7 @@ export default function CustomerSidebar() {
         { icon: LayoutDashboard, label: "Bảng điều khiển", href: "/home-marketplace" },
         { icon: PackageCheck, label: "Gói chăm sóc", href: "/customer-service-packages" },
         { icon: Store, label: "Nhà vườn liên kết", href: "/providers" },
+        { icon: Star, label: "Đánh giá & Phản hồi", href: "/total-feedbacks" },
         { icon: Flower2, label: "Lan của tôi", href: "/customer/my-orchids" },
         { icon: History, label: "Lịch sử chăm sóc", href: "/customer/history" },
     ];

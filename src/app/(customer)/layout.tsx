@@ -19,6 +19,7 @@ export default function CustomerLayout({
         '/customer-service-packages',
         '/customer-service-packages/service-discovery',
         '/providers',
+        '/total-feedbacks'
     ];
 
     useEffect(() => {
@@ -38,6 +39,9 @@ export default function CustomerLayout({
 
         if (!isAllowedRoute) {
             router.replace('/home-marketplace');
+        }
+        if (!isAllowedRoute) {
+            router.replace('/total-feedbacks');
         }
     }, [user, isAuthenticated, pathname, router]);
 

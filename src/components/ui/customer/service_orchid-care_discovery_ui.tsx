@@ -39,6 +39,7 @@ export default function CustomerOrchidCareDiscoveryUI() {
                                 {/* Card 1 - Giống hình bên trái */}
                                 <DiscoveryServiceCard
                                     id="1"
+                                    slug="goi-cham-soc-toan-dien-cho-lan-rung-quy-hiem"
                                     image="/assets/images/orchid-greenhouse.jpg"
                                     title="Gói Chăm Sóc Toàn Diện Cho Lan Rừng Quý Hiếm"
                                     provider="Vườn Lan Ngọc Châu"
@@ -54,6 +55,7 @@ export default function CustomerOrchidCareDiscoveryUI() {
                                 {/* Card 2 - Giống hình bên phải */}
                                 <DiscoveryServiceCard
                                     id="2"
+                                    slug="phuc-hoi-suc-khoe-lan-ho-diep-sau-tet"
                                     image="/assets/images/orchid-expert.jpg"
                                     title="Phục Hồi Sức Khỏe Lan Hồ Điệp Sau Tết"
                                     provider="Chuyên gia: Trần Minh"

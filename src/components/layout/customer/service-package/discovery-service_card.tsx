@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { Clock, FileText, Star, CheckCircle, Gem } from 'lucide-react';
 
 interface DiscoveryServiceCardProps {
-    id: string;                           // ← id bắt buộc
+    id?: string;                    // Giữ lại nếu cần (không bắt buộc dùng cho link)
+    slug: string;                   // ← Dùng slug thay vì id
     image: string;
     title: string;
     provider: string;
@@ -18,7 +19,7 @@ interface DiscoveryServiceCardProps {
 }
 
 export default function DiscoveryServiceCard({
-    id,
+    slug,                           // ← Nhận slug
     image,
     title,
     provider,
@@ -31,8 +32,8 @@ export default function DiscoveryServiceCard({
     badge,
 }: DiscoveryServiceCardProps) {
 
-    // Tạo link động dựa trên id
-    const detailsHref = `/customer-service-packages/service-discovery/${id}/details`;
+    // ==================== THAY ĐỔI QUAN TRỌNG ====================
+    const detailsHref = `/customer-service-packages/service-discovery/${slug}/details`;
 
     return (
         <Link href={detailsHref} className="group block">
@@ -98,7 +99,6 @@ export default function DiscoveryServiceCard({
                             <p className='text-[#4A4455]'>
                                 {reportFrequency}
                             </p>
-
                         </div>
                     </div>
 
@@ -114,7 +114,6 @@ export default function DiscoveryServiceCard({
                             </span>
                         </div>
 
-                        {/* Nút Xem chi tiết (vẫn nằm trong Link nên sẽ chuyển trang) */}
                         <span className="px-4 py-2 mt-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white text-center text-sm font-semibold rounded-xl transition-colors">
                             Xem chi tiết
                         </span>

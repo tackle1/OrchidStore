@@ -1,4 +1,6 @@
 
+// src/data/servicePackages.ts
+
 export interface Feedback {
     id: string;
     name: string;
@@ -10,6 +12,7 @@ export interface Feedback {
 
 export interface ServicePackage {
     id: string;
+    slug: string;
     title: string;
     provider: string;
     avatar: string;
@@ -24,9 +27,24 @@ export interface ServicePackage {
     feedbacks: Feedback[];
 }
 
+// ==================== HÀM TẠO SLUG TỰ ĐỘNG ====================
+const createSlug = (title: string): string => {
+    return title
+        .toLowerCase()
+        .normalize("NFD")                    // Loại bỏ dấu tiếng Việt
+        .replace(/[\u0300-\u036f]/g, "")     // Xóa các ký tự dấu
+        .replace(/đ/g, "d")                  // Xử lý chữ đ
+        .replace(/[^a-z0-9\s-]/g, "")        // Giữ lại chữ, số, khoảng trắng và dấu gạch ngang
+        .trim()
+        .replace(/\s+/g, "-")                // Thay khoảng trắng bằng dấu gạch ngang
+        .replace(/-+/g, "-");                // Loại bỏ dấu gạch ngang liên tiếp
+};
+
+// ==================== DỮ LIỆU MẪU ====================
 export const servicePackages: ServicePackage[] = [
     {
-        id: "1",
+        id: "pkg_001",
+        slug: createSlug("Gói Chăm Sóc Toàn Diện Cho Lan Rừng Quý Hiếm"),
         title: "Gói Chăm Sóc Toàn Diện Cho Lan Rừng Quý Hiếm",
         provider: "Vườn Lan Ngọc Châu",
         avatar: "https://i.pravatar.cc/150?img=47",
@@ -35,7 +53,7 @@ export const servicePackages: ServicePackage[] = [
         price: "1.500.000đ",
         duration: "6 Tháng",
         reportFrequency: "Báo cáo 2 tuần/lần",
-        description: "Gói dịch vụ phục hồi toàn diện dành riêng cho các dòng lan đột biến quý hiếm...",
+        description: "Gói dịch vụ phục hồi toàn diện dành riêng cho các dòng lan đột biến quý hiếm. Bao gồm kiểm tra sức khỏe, xử lý nấm bệnh, kích thích ra rễ và lá mới.",
         image: "/assets/images/orchid-greenhouse.jpg",
         badge: "Lan Đột Biến",
         feedbacks: [
@@ -58,7 +76,8 @@ export const servicePackages: ServicePackage[] = [
         ],
     },
     {
-        id: "2",
+        id: "pkg_002",
+        slug: createSlug("Phục Hồi Sức Khỏe Lan Hồ Điệp Sau Tết"),
         title: "Phục Hồi Sức Khỏe Lan Hồ Điệp Sau Tết",
         provider: "Chuyên gia: Trần Minh",
         avatar: "https://i.pravatar.cc/150?img=28",
@@ -67,7 +86,7 @@ export const servicePackages: ServicePackage[] = [
         price: "800.000đ",
         duration: "3 Tháng",
         reportFrequency: "Báo cáo hàng tuần",
-        description: "Gói dịch vụ chuyên sâu giúp lan Hồ Điệp phục hồi sau Tết...",
+        description: "Gói dịch vụ chuyên sâu giúp lan Hồ Điệp phục hồi sau Tết. Tập trung vào việc kích thích rễ, dưỡng lá và phục hồi sức sống cho lan sau giai đoạn nghỉ đông.",
         image: "/assets/images/orchid-expert.jpg",
         badge: "",
         feedbacks: [
@@ -90,3 +109,15 @@ export const servicePackages: ServicePackage[] = [
         ],
     },
 ];
+
+// ==================== HELPER FUNCTIONS ====================
+
+// Lấy service package theo slug
+export const getServicePackageBySlug = (slug: string): ServicePackage | undefined => {
+    return servicePackages.find((pkg) => pkg.slug === slug);
+};
+
+// Lấy service package theo ID
+export const getServicePackageById = (id: string): ServicePackage | undefined => {
+    return servicePackages.find((pkg) => pkg.id === id);
+};

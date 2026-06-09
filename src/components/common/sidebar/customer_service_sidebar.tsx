@@ -7,10 +7,10 @@ interface ServiceSidebarProps {
     price: string;
     duration: string;
     reportFrequency: string;
-    packageId: string;
+    packageSlug: string;
 }
 
-export default function ServiceSidebar({ price, duration, reportFrequency, packageId }: ServiceSidebarProps) {
+export default function ServiceSidebar({ price, duration, reportFrequency, packageSlug }: ServiceSidebarProps) {
     return (
         <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6 sticky top-6 shadow-sm">
             <div className="mb-4">
@@ -58,7 +58,7 @@ export default function ServiceSidebar({ price, duration, reportFrequency, packa
             </div>
 
             <Link
-                href={`/customer/booking?packageId=${packageId}`}
+                href={`/customer-service-packages/booking?packageSlug=${packageSlug}`}
                 className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-2xl text-[15px] transition-colors"
             >
                 <Calendar className="w-4 h-4" />

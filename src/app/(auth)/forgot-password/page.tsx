@@ -1,6 +1,3 @@
-import ForgetPasswordUI from "../../../components/ui/forget_password_ui";
-export default function ForgetPasswordPageContainer() {
-    return (
-        <ForgetPasswordUI />
-    );
-}
+import ForgetPasswordUI from "../../../components/ui/auth/forget-password/forget_password_ui";
+
+export default ForgetPasswordUI

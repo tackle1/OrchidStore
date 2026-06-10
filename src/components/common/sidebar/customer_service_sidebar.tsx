@@ -58,7 +58,7 @@ export default function ServiceSidebar({ price, duration, reportFrequency, packa
             </div>
 
             <Link
-                href={`/customer-service-packages/booking?packageSlug=${packageSlug}`}
+                href={`/customer-service-packages/booking?package=${packageSlug}`}
                 className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-2xl text-[15px] transition-colors"
             >
                 <Calendar className="w-4 h-4" />

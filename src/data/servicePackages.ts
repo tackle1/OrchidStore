@@ -23,6 +23,9 @@ export interface ServicePackage {
     image: string;
     badge: string;
     feedbacks: Feedback[];
+    numberOfOrchids?: number;
+    careStartDate?: string;
+    careEndDate?: string;
 }
 
 // ==================== HÀM TẠO SLUG TỰ ĐỘNG ====================
@@ -72,6 +75,11 @@ export const servicePackages: ServicePackage[] = [
                 content: "Nhà vườn chăm sóc rất tận tâm. Lan đột biến của mình sau 6 tuần đã ra được 3 mầm mới. Rất hài lòng với dịch vụ.",
             },
         ],
+
+        // === Cập nhật ngày theo DD/MM/YYYY ===
+        numberOfOrchids: 2,
+        careStartDate: "20/06/2026",
+        careEndDate: "20/12/2026",
     },
     {
         id: "pkg_002",
@@ -105,6 +113,11 @@ export const servicePackages: ServicePackage[] = [
                 content: "Lan Hồ Điệp của mình sau Tết bị yếu, sau 1 tháng chăm sóc theo gói này đã ra hoa lại. Chất lượng dịch vụ rất ổn.",
             },
         ],
+
+        // === Cập nhật ngày theo DD/MM/YYYY ===
+        numberOfOrchids: 1,
+        careStartDate: "15/06/2026",
+        careEndDate: "15/09/2026",
     },
 ];
 

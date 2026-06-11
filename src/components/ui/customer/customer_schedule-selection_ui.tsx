@@ -103,7 +103,7 @@ export default function CustomerScheduleSelectionUI() {
 
                 <BookingFooter
                     backHref={`/customer-service-packages/booking/photos?package=${packageSlug}`}
-                    nextHref={`/customer-service-packages/booking/confirm?package=${packageSlug}`}
+                    nextHref={`/customer-service-packages/booking/review?package=${packageSlug}`}
                 />
             </div>
         </div>

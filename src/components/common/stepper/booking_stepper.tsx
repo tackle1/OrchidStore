@@ -10,9 +10,10 @@ const steps = [
     { label: 'Dịch vụ', number: 1 },
     { label: 'Thông tin cây', number: 2 },
     { label: 'Ảnh hiện trạng', number: 3 },
-    { label: 'Thời gian', number: 4 },
-    { label: 'Xác nhận', number: 5 },
-    { label: 'Thanh toán', number: 6 },
+    { label: 'Lịch hẹn', number: 4 },
+    { label: 'Xem lại', number: 5 },           // ← Bước Review (bằng tiếng Việt)
+    { label: 'Xác nhận', number: 6 },
+    { label: 'Thanh toán', number: 7 },
 ];
 
 export default function BookingStepper({ currentStep }: BookingStepperProps) {

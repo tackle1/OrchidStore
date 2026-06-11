@@ -71,7 +71,7 @@ export default function ScheduleOrderSummary({
             </div>
 
             <button
-                onClick={() => router.push(`/customer-service-packages/booking/confirm?package=${packageSlug}`)}
+                onClick={() => router.push(`/customer-service-packages/booking/review?package=${packageSlug}`)}
                 className="mt-6 w-full py-3.5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-2xl flex items-center justify-center gap-2"
             >
                 Tiếp tục <ArrowRight className="w-5 h-5" />

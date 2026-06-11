@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import { ServicePackage } from '../../../../../data/servicePackages';
 
@@ -9,6 +10,8 @@ interface BookingOrderSummaryProps {
 }
 
 export default function BookingOrderSummary({ service, packageSlug }: BookingOrderSummaryProps) {
+    const router = useRouter();
+
     // Lấy giá gốc từ service
     const priceNumber = parseInt(service.price.replace(/[^\d]/g, '')) || 0;
 
@@ -66,9 +69,7 @@ export default function BookingOrderSummary({ service, packageSlug }: BookingOrd
 
             {/* Nút Tiếp tục */}
             <button
-                onClick={() => {
-                    window.location.href = `/customer-service-packages/booking/time?package=${packageSlug}`;
-                }}
+                onClick={() => router.push(`/customer-service-packages/booking/schedule?package=${packageSlug}`)}
                 className="mt-4 w-full py-3.5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-2xl flex items-center justify-center gap-2 transition-colors"
             >
                 Tiếp tục <ArrowRight className="w-5 h-5" />

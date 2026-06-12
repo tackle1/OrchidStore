@@ -17,7 +17,7 @@ export default function BookingReviewUI() {
     const packageSlug = searchParams.get('package') || '';
     const service = packageSlug ? getServicePackageBySlug(packageSlug) : null;
 
-    const [selectedDate, setSelectedDate] = useState<Date>(new Date(2026, 5, 11));
+    const [selectedDate, setSelectedDate] = useState<Date>(new Date());
     const [selectedTime, setSelectedTime] = useState('10:00 - 12:00');
     const [deliveryMethod, setDeliveryMethod] = useState<'nursery' | 'self'>('nursery');
 
@@ -77,7 +77,7 @@ export default function BookingReviewUI() {
 
                 <BookingFooter
                     backHref={`/customer-service-packages/booking/schedule?package=${packageSlug}`}
-                    nextHref={`/customer-service-packages/booking/payment?package=${packageSlug}`}
+                    nextHref={`/customer-service-packages/booking/confirm?package=${packageSlug}`}
                 />
             </div>
         </div>

@@ -1,6 +1,3 @@
-// src/data/providers.ts
-
-import { ServicePackage } from "./servicePackages";
 
 export interface Review {
     id: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ServicePackage } from '../../../../../data/servicePackages';
 
@@ -79,11 +79,11 @@ export default function ReviewOrderSummary({
             </div>
 
             <button
-                onClick={() => router.push(`/customer-service-packages/booking/payment?package=${packageSlug}`)}
+                onClick={() => router.push(`/customer-service-packages/booking/confirm?package=${packageSlug}`)}
                 className="w-full py-3.5 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-2xl flex items-center justify-center gap-2"
             >
-                <CheckCircle className="w-5 h-5" />
-                Xác nhận & Tiếp tục thanh toán
+                Xác nhận
+                <ArrowRight className="w-5 h-5" />
             </button>
         </div>
     );

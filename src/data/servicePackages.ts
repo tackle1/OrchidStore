@@ -23,6 +23,7 @@ export interface ServicePackage {
     image: string;
     badge: string;
     feedbacks: Feedback[];
+    location?: string;
     numberOfOrchids?: number;
     careStartDate?: string;
     careEndDate?: string;
@@ -75,6 +76,7 @@ export const servicePackages: ServicePackage[] = [
                 content: "Nhà vườn chăm sóc rất tận tâm. Lan đột biến của mình sau 6 tuần đã ra được 3 mầm mới. Rất hài lòng với dịch vụ.",
             },
         ],
+        location: "Quận 9, TP. Hồ Chí Minh",
 
         // === Cập nhật ngày theo DD/MM/YYYY ===
         numberOfOrchids: 2,
@@ -114,6 +116,7 @@ export const servicePackages: ServicePackage[] = [
             },
         ],
 
+        location: "Quận 7, TP. Hồ Chí Minh",
         // === Cập nhật ngày theo DD/MM/YYYY ===
         numberOfOrchids: 1,
         careStartDate: "15/06/2026",

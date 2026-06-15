@@ -19,7 +19,8 @@ export default function CustomerLayout({
         '/customer-service-packages',
         '/customer-service-packages/service-discovery',
         '/providers',
-        '/total-feedbacks'
+        '/total-feedbacks',
+        '/history-care'
     ];
 
     useEffect(() => {

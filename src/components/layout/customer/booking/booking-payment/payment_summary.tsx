@@ -8,6 +8,9 @@ interface PaymentSummaryProps {
     serviceImage: string;
     originalAmount: number;
     discount: number;
+    shippingFee: number;
+    platformFee: number;
+    receiveFee: number;
     total: number;
     packageSlug: string;
 }
@@ -17,6 +20,9 @@ export default function PaymentSummary({
     serviceDuration,
     serviceImage,
     originalAmount,
+    shippingFee,
+    platformFee,
+    receiveFee,
     discount,
     total,
     packageSlug,
@@ -41,6 +47,18 @@ export default function PaymentSummary({
                 <div className="flex justify-between">
                     <span className="text-[#6B7280]">Tạm tính</span>
                     <span>{originalAmount.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <div className="flex justify-between">
+                    <span className="text-[#6B7280]">Phí nền tảng (5%)</span>
+                    <span>{platformFee.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <div className="flex justify-between">
+                    <span className="text-[#6B7280]">Phí vận chuyển</span>
+                    <span>{shippingFee.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <div className="flex justify-between">
+                    <span className="text-[#6B7280]">Phí nhận cây</span>
+                    <span>{receiveFee.toLocaleString('vi-VN')}đ</span>
                 </div>
                 <div className="flex justify-between text-[#16A34A]">
                     <span>Khuyến mãi (LanCare10)</span>

@@ -20,7 +20,7 @@ export default function CustomerSidebar() {
         { icon: Store, label: "Nhà vườn liên kết", href: "/providers" },
         { icon: Star, label: "Đánh giá & Phản hồi", href: "/total-feedbacks" },
         { icon: Flower2, label: "Lan của tôi", href: "/customer/my-orchids" },
-        { icon: History, label: "Lịch sử chăm sóc", href: "/customer/history" },
+        { icon: History, label: "Lịch sử chăm sóc", href: "/history-care" },
     ];
 
     return (

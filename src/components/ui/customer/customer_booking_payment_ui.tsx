@@ -30,8 +30,11 @@ export default function CustomerBookingPaymentUI() {
     const priceNumber = parseInt(service.price.replace(/[^\d]/g, '')) || 0;
     const orderId = 'LCH-8492';
     const originalAmount = priceNumber;
+    const shippingFee = 50000;
+    const receiveFee = 50000;
+    const platformFee = Math.round(priceNumber * 0.05);
     const discount = Math.round(priceNumber * 0.1);
-    const amount = originalAmount - discount;
+    const amount = originalAmount + shippingFee + platformFee + receiveFee - discount;
 
     return (
         <div className="min-h-screen bg-[#F8F9FC]">
@@ -76,6 +79,9 @@ export default function CustomerBookingPaymentUI() {
                             serviceDuration={service.duration}
                             serviceImage={service.image}
                             originalAmount={originalAmount}
+                            shippingFee={shippingFee}
+                            platformFee={platformFee}
+                            receiveFee={receiveFee}
                             discount={discount}
                             total={amount}
                             packageSlug={packageSlug}

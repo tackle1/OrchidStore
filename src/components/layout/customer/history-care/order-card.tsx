@@ -30,6 +30,9 @@ export default function OrderCard({ order }: OrderCardProps) {
         if (order.status === 'check-in') {
             // Chuyển đến trang Xác nhận Check-in
             router.push(`/history-care/check-in/${slug}`);
+        } else if (order.status === 'in-progress') {
+            // Chuyển đến trang Xác nhận in-progress
+            router.push(`/history-care/in-progress/${slug}`);
         } else {
             // Các trạng thái khác (in-progress, completed) → có thể dẫn đến trang chi tiết chung
             router.push(`/history-care/detail/${slug}`);

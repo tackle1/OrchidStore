@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { Building2, Star } from 'lucide-react';
 import OrderStatusBadge from '../history-care/order-status_badge';
 
@@ -21,6 +22,20 @@ interface OrderCardProps {
 }
 
 export default function OrderCard({ order }: OrderCardProps) {
+    const router = useRouter();
+
+    const handleViewDetail = () => {
+        const slug = order.id.toLowerCase(); // ví dụ: lch-9830
+
+        if (order.status === 'check-in') {
+            // Chuyển đến trang Xác nhận Check-in
+            router.push(`/history-care/check-in/${slug}`);
+        } else {
+            // Các trạng thái khác (in-progress, completed) → có thể dẫn đến trang chi tiết chung
+            router.push(`/history-care/detail/${slug}`);
+        }
+    };
+
     return (
         <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6 hover:shadow-md transition-shadow">
 
@@ -71,8 +86,11 @@ export default function OrderCard({ order }: OrderCardProps) {
                 </div>
             )}
 
-            {/* Action Button */}
-            <button className="w-full mt-2 py-2.5 text-sm font-medium text-[#6D28D9] bg-[#F3E8FF] hover:bg-[#EDE4FF] rounded-2xl transition-colors">
+            {/* Action Button - ĐÃ CẬP NHẬT */}
+            <button
+                onClick={handleViewDetail}
+                className="w-full mt-2 py-2.5 text-sm font-medium text-[#6D28D9] bg-[#F3E8FF] hover:bg-[#EDE4FF] rounded-2xl transition-colors"
+            >
                 Xem chi tiết
             </button>
         </div>

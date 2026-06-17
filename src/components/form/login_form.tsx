@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { EyeOff, Flower2 } from 'lucide-react';
+import { EyeOff, Eye, Flower2 } from 'lucide-react';
 import Link from 'next/link';
 
 import ForgetPasswordLink from '../../app/(auth)/forgot-password/forget_route';
@@ -15,6 +15,9 @@ export default function LoginForm() {
         password: '',
         rememberMe: false,
     });
+
+    // Thêm state để toggle mật khẩu
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = e.target;
@@ -91,7 +94,7 @@ export default function LoginForm() {
 
                         <div className="relative">
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
@@ -99,13 +102,19 @@ export default function LoginForm() {
                                 className="w-full h-[50px] border border-[#D9D3E5] rounded-[12px] px-4 pr-12 text-[14px] text-[#111827] placeholder:text-[#B6AFC7] outline-none bg-white"
                             />
 
+                            {/* Nút Toggle Password */}
                             <button
                                 type="button"
-                                title="Toggle password visibility"
+                                onClick={() => setShowPassword(!showPassword)}
+                                title={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
                                 aria-label="Toggle password visibility"
-                                className="absolute right-4 top-1/2 -translate-y-1/2"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8D88A1] hover:text-[#6B7280] transition-colors"
                             >
-                                <EyeOff className="w-[18px] h-[18px] text-[#8D88A1]" />
+                                {showPassword ? (
+                                    <Eye className="w-[18px] h-[18px]" />
+                                ) : (
+                                    <EyeOff className="w-[18px] h-[18px]" />
+                                )}
                             </button>
                         </div>
                     </div>

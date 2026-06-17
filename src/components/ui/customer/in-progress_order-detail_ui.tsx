@@ -4,9 +4,9 @@ import { useParams } from 'next/navigation';
 
 import InProgressHeader from '../../../components/layout/customer/history-care/in-progress/in-progress_header';
 import ProgressTimeline from '../../../components/layout/customer/history-care/in-progress/progress-timeline';
-import CareReportCard from '../../../components/layout/customer/history-care/in-progress/care-Report_card';
+import CareReportCard from '../../layout/customer/history-care/in-progress/care-report_card';
 import PhotoLog from '../../../components/layout/customer/history-care/in-progress/photo-log';
-import ProviderInfoCard from '../../../components/layout/customer/history-care/in-progress/provider-Info_card';
+import ProviderInfoCard from '../../layout/customer/history-care/in-progress/provider-info_card';
 import PaymentDetailsCard from '../../../components/layout/customer/history-care/in-progress/payment-details_card';
 
 export default function InProgressOrderDetailUI() {

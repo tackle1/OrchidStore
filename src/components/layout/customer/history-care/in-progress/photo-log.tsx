@@ -41,9 +41,9 @@ export default function PhotoLog() {
                 </div>
 
                 {/* Ô trống */}
-                <div className="border-2 border-dashed border-[#F2F3FF] rounded-2xl h-36 flex flex-col items-center justify-center text-center">
-                    <div className="text-[#9CA3AF] mb-1">
-                        <Ellipsis className="w-5 h-5" />
+                <div className="border-2 border-dashed border-[#CCC3D8] bg-[#F2F3FF] rounded-2xl h-36 flex flex-col items-center justify-center text-center">
+                    <div className="text-[#9CA3AF] bg-[#F2F3FF] border-2 border-[#CCC3D8] mb-1 rounded-full ">
+                        <Ellipsis className="w-5 h-5 " />
                     </div>
                     <p className="text-xs text-[#6B7280]">Chờ ảnh check-out</p>
                 </div>

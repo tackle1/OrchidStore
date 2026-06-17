@@ -20,7 +20,8 @@ export default function CustomerLayout({
         '/customer-service-packages/service-discovery',
         '/providers',
         '/total-feedbacks',
-        '/history-care'
+        '/history-care',
+        '/history-care/in-progress/'
     ];
 
     useEffect(() => {

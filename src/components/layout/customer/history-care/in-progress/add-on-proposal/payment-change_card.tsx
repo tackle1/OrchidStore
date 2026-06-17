@@ -1,8 +1,17 @@
 'use client';
 
+import { useRouter, useParams } from 'next/navigation';
 import { Check, XCircle, PlusCircle, Plus } from 'lucide-react';
 
 export default function PaymentChangeCard() {
+    const router = useRouter();
+    const params = useParams();
+    const slug = params.slug as string;
+
+    const handleAcceptAddOn = () => {
+        router.push(`/history-care/in-progress/${slug}/add-on-proposal/accept-success`);
+    };
+
     return (
         <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6">
 
@@ -35,7 +44,10 @@ export default function PaymentChangeCard() {
             </div>
 
             <div className="space-y-3">
-                <button className="w-full flex items-center justify-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold py-3 rounded-2xl transition-colors">
+                <button
+                    onClick={handleAcceptAddOn}
+                    className="w-full flex items-center justify-center gap-2 bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold py-3 rounded-2xl transition-colors"
+                >
                     <Check className="w-4 h-4" /> Chấp nhận add-on
                 </button>
 

@@ -1,8 +1,13 @@
 'use client';
 
+import { useRouter, useParams } from 'next/navigation';
 import { FileText } from 'lucide-react';
 
 export default function CareReportCard() {
+    const router = useRouter();
+    const params = useParams();
+    const slug = params.slug as string;
+
     return (
         <div className="bg-[#F3E8FF] rounded-3xl p-5 flex items-center justify-between">
             <div className="flex items-start gap-4">
@@ -20,7 +25,7 @@ export default function CareReportCard() {
             </div>
 
             <button
-                onClick={() => alert('Chức năng xem báo cáo đang phát triển')}
+                onClick={() => router.push(`/history-care/in-progress/${slug}/care-reports`)}
                 className="bg-[#6D28D9] hover:bg-[#5B21B6] text-white px-6 py-2.5 rounded-2xl text-sm font-semibold transition-colors whitespace-nowrap"
             >
                 Xem báo cáo

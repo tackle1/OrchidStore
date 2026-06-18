@@ -16,6 +16,14 @@ export default function PaymentDetailsCard() {
         router.push(`/history-care/in-progress/${slug}/add-on-proposal`);
     };
 
+    const handleDispute = () => {
+        if (!slug) {
+            console.error("Slug is undefined!");
+            return;
+        }
+        router.push(`/history-care/in-progress/${slug}/disputes`);
+    };
+
     return (
         <div className="bg-white border border-[#E5E7EB] rounded-3xl p-6">
             <h3 className="font-semibold mb-4">Chi tiết thanh toán</h3>
@@ -70,7 +78,9 @@ export default function PaymentDetailsCard() {
                 </button>
 
                 <div className="grid grid-cols-2 gap-3">
-                    <button className="border border-[#E5E7EB] hover:bg-[#F8F9FC] text-[#DC2626] font-medium py-3 rounded-2xl transition-colors">
+                    <button
+                        onClick={handleDispute}
+                        className="border border-[#E5E7EB] hover:bg-[#F8F9FC] text-[#DC2626] font-medium py-3 rounded-2xl transition-colors">
                         Mở tranh chấp
                     </button>
                     <button className="bg-[#F3E8FF] text-[#6D28D9] font-medium py-3 rounded-2xl hover:bg-[#EDE4FF] transition-colors">

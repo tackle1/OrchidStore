@@ -1,10 +1,19 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { X, AlertCircle } from 'lucide-react';
 
 export default function ProposalTopBar() {
+    const params = useParams();
     const router = useRouter();
+    const slug = params.slug as string;
+    const handleAddOnProposal = () => {
+        if (!slug) {
+            console.error("Slug is undefined!");
+            return;
+        }
+        router.push(`/history-care/in-progress/${slug}`);
+    };
 
     return (
         <div className="border-b border-[#E5E7EB] bg-white sticky top-0 z-50">
@@ -12,7 +21,7 @@ export default function ProposalTopBar() {
                 {/* Left: Close + Title */}
                 <div className="flex items-center gap-4">
                     <button
-                        onClick={() => router.back()}
+                        onClick={handleAddOnProposal}
                         className="text-[#6B7280] hover:text-black transition-colors"
                         aria-label="Quay lại"
                     >

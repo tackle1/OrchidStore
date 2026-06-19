@@ -9,12 +9,15 @@ interface InProgressHeaderProps {
 
 export default function InProgressHeader({ slug }: InProgressHeaderProps) {
     const router = useRouter();
+    const handleInProgress = () => {
+        router.push(`/history-care`);
+    };
 
     return (
         <div className="mb-8">
             <div className="flex items-center gap-2 text-sm text-[#6B7280] mb-1">
                 <button
-                    onClick={() => router.back()}
+                    onClick={handleInProgress}
                     className="flex items-center gap-1.5 hover:text-[#374151]"
                 >
                     <ArrowLeft className="w-4 h-4" />

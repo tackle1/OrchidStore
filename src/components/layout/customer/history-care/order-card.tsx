@@ -7,7 +7,7 @@ import OrderStatusBadge from '../history-care/order-status_badge';
 export interface Order {
     id: string;
     orchidName: string;
-    status: 'in-progress' | 'check-in' | 'completed';
+    status: 'in-progress' | 'check-in' | 'check-out' | 'completed';
     statusLabel: string;
     provider: string;
     servicePackage: string;
@@ -33,6 +33,8 @@ export default function OrderCard({ order }: OrderCardProps) {
         } else if (order.status === 'in-progress') {
             // Chuyển đến trang Xác nhận in-progress
             router.push(`/history-care/in-progress/${slug}`);
+        } else if (order.status === 'check-out') {
+            router.push(`/history-care/check-out/${slug}`);
         } else {
             // Các trạng thái khác (in-progress, completed) → có thể dẫn đến trang chi tiết chung
             router.push(`/history-care/detail/${slug}`);

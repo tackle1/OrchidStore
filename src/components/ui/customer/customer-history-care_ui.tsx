@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Clock, Truck } from 'lucide-react';
+import { Clock, Truck, SquareArrowRightExit } from 'lucide-react';
 import CustomerSidebar from '../../common/sidebar/customer_sidebar';
 import CustomerNavbar from '../../common/navbar/customer_navbar';
 import OrderFilterTabs from '../../../components/layout/customer/history-care/order-filter_tabs';
@@ -33,6 +33,17 @@ const orders: Order[] = [
         nextActionIcon: <Truck className="w-4 h-4" />,
     },
     {
+        id: 'LCH-9845',
+        orchidName: 'Kiếm Xanh Thái Nguyên',
+        status: 'check-out',
+        statusLabel: 'Đã check-out',
+        provider: 'Vườn Lan Hoa Việt',
+        servicePackage: 'Phục hồi VIP 3 tháng',
+        orderDate: '05/09/2023',
+        nextAction: 'Đánh giá dịch vụ chăm sóc',
+        nextActionIcon: <SquareArrowRightExit className="w-4 h-4" />,
+    },
+    {
         id: 'LCH-9755',
         orchidName: 'Đại Châu Ngọc Điểm',
         status: 'completed',
@@ -47,13 +58,14 @@ const orders: Order[] = [
 export default function CustomerHistoryCareUI() {
     const [activeFilter, setActiveFilter] = useState<OrderStatus>('all');
 
-    // === FILTER LOGIC ĐÃ SỬA ===
+    // === FILTER LOGIC ===
     const filteredOrders = orders.filter((order) => {
         if (activeFilter === 'all') return true;
         if (activeFilter === 'in-progress') return order.status === 'in-progress';
         if (activeFilter === 'check-in') return order.status === 'check-in';
+        if (activeFilter === 'check-out') return order.status === 'check-out';
         if (activeFilter === 'completed') return order.status === 'completed';
-        // Các tab chưa có đơn (check-out, dispute) sẽ trả về mảng rỗng
+        // Các tab chưa có đơn (dispute) sẽ trả về mảng rỗng
         return false;
     });
 

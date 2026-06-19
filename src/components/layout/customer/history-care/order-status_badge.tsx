@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, SquareArrowRightExit } from 'lucide-react';
 import { Order } from '../history-care/order-card';
 
 interface OrderStatusBadgeProps {
@@ -21,6 +21,15 @@ export default function OrderStatusBadge({ order }: OrderStatusBadgeProps) {
         return (
             <div className="flex items-center gap-1.5 px-3 py-1 bg-[#E0E7FF] text-[#7B7487] text-xs font-medium rounded-full">
                 <div className="w-2 h-2 bg-[#7B7487] rounded-full"></div>
+                {order.statusLabel}
+            </div>
+        );
+    }
+
+    if (order.status === 'check-out') {
+        return (
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-[#CCFBF1] text-[#0F766E] text-xs font-medium rounded-full">
+                <SquareArrowRightExit className="w-3.5 h-3.5" />
                 {order.statusLabel}
             </div>
         );

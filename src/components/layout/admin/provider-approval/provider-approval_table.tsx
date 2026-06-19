@@ -10,6 +10,7 @@ import {
     AlertTriangle,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Filters {
     status: string;
@@ -21,7 +22,23 @@ interface ProviderApprovalTableProps {
     filters?: Filters;
 }
 
+
+// ==================== HÀM TẠO SLUG TỪ TÊN (Đã sửa lỗi chữ Đ) ====================
+const createSlug = (name: string): string => {
+    return name
+        .toLowerCase()
+        .normalize('NFD')                           // Tách dấu tiếng Việt
+        .replace(/[\u0300-\u036f]/g, '')            // Xóa dấu
+        .replace(/đ/g, 'd')                         // ← Xử lý riêng chữ Đ
+        .replace(/[^a-z0-9\s-]/g, '')               // Xóa ký tự đặc biệt
+        .trim()
+        .replace(/\s+/g, '-')                       // Thay khoảng trắng bằng dấu gạch ngang
+        .replace(/-+/g, '-');                       // Xóa dấu gạch ngang thừa
+};
+
 export default function ProviderApprovalTable({ filters }: ProviderApprovalTableProps) {
+    const router = useRouter();
+
     // ==================== DATA CỨNG ====================
     const allProviders = [
         {
@@ -129,6 +146,12 @@ export default function ProviderApprovalTable({ filters }: ProviderApprovalTable
         setCurrentPage(1);
     }, [filters]);
 
+    // ==================== HANDLE XÉT DUYỆT (DÙNG SLUG) ====================
+    const handleApproveClick = (providerName: string) => {
+        const slug = createSlug(providerName);
+        router.push(`provider-approval/${slug}`);
+    };
+
     // ==================== RENDER ====================
     return (
         <div className="bg-white border border-[#D8DDF7] rounded-[12px] overflow-hidden">
@@ -208,9 +231,12 @@ export default function ProviderApprovalTable({ filters }: ProviderApprovalTable
                             </span>
                         </div>
 
-                        {/* Action */}
+                        {/* Action - Nút Xét duyệt (dùng slug) */}
                         <div>
-                            <button className="w-[74px] h-[42px] rounded-[8px] bg-[#7C3AED] text-white text-[14px] font-medium hover:bg-[#6D28D9]">
+                            <button
+                                onClick={() => handleApproveClick(provider.name)}
+                                className="w-[74px] h-[42px] rounded-[8px] bg-[#7C3AED] text-white text-[14px] font-medium hover:bg-[#6D28D9] transition-colors"
+                            >
                                 Xét duyệt
                             </button>
                         </div>
@@ -235,7 +261,6 @@ export default function ProviderApprovalTable({ filters }: ProviderApprovalTable
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
                         aria-label="Previous page"
-                        title="Previous page"
                         className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 disabled:opacity-40"
                     >
                         <ChevronLeft className="w-4 h-4" />
@@ -258,7 +283,6 @@ export default function ProviderApprovalTable({ filters }: ProviderApprovalTable
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
                         aria-label="Next page"
-                        title="Next page"
                         className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 disabled:opacity-40"
                     >
                         <ChevronRight className="w-4 h-4" />

@@ -31,14 +31,11 @@ export default function AdminLayout({
         }
 
         const isAllowedRoute = adminRoutes.some((route) =>
-            pathname.startsWith(route)
+            pathname === route || pathname.startsWith(route + '/')
         );
 
         if (!isAllowedRoute) {
             router.replace('/dashboard');
-        }
-        if (!isAllowedRoute) {
-            router.replace('/provider-approval');
         }
     }, [user, isAuthenticated, pathname, router]);
 

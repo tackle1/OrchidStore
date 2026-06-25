@@ -18,7 +18,8 @@ export default function AdminLayout({
         '/dashboard',
         '/provider-approval',
         '/categories',
-        '/transactions'
+        '/transactions',
+        '/reports'
     ];
 
     useEffect(() => {

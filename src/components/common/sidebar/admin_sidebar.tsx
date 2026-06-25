@@ -20,7 +20,7 @@ const menuItems = [
     { icon: Store, label: "Nhà cung cấp", href: "/provider-approval" },
     { icon: Scale, label: "Tranh chấp", href: "/admin/disputes" },
     { icon: FileText, label: "Giao dịch", href: "/admin/transactions" },
-    { icon: Tag, label: "Danh mục", href: "/admin/categories" },
+    { icon: Tag, label: "Danh mục", href: "/categories" },
     { icon: BarChart3, label: "Báo cáo", href: "/admin/reports" },
     { icon: Users, label: "Người dùng", href: "/admin/users" },
 ];

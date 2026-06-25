@@ -16,7 +16,8 @@ export default function AdminLayout({
 
     const adminRoutes = [
         '/dashboard',
-        '/provider-approval'
+        '/provider-approval',
+        '/categories'
     ];
 
     useEffect(() => {

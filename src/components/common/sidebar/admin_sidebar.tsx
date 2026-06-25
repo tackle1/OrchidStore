@@ -21,7 +21,7 @@ const menuItems = [
     { icon: Scale, label: "Tranh chấp", href: "/admin/disputes" },
     { icon: FileText, label: "Giao dịch", href: "/transactions" },
     { icon: Tag, label: "Danh mục", href: "/categories" },
-    { icon: BarChart3, label: "Báo cáo", href: "/admin/reports" },
+    { icon: BarChart3, label: "Báo cáo", href: "/reports" },
     { icon: Users, label: "Người dùng", href: "/admin/users" },
 ];
 

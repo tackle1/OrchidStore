@@ -19,7 +19,9 @@ export default function AdminLayout({
         '/provider-approval',
         '/categories',
         '/transactions',
-        '/reports'
+        '/reports',
+        '/users',
+        '/disputes',
     ];
 
     useEffect(() => {

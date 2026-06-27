@@ -18,7 +18,7 @@ import {
 const menuItems = [
     { icon: LayoutGrid, label: "Tổng quan", href: "/dashboard" },
     { icon: Store, label: "Nhà cung cấp", href: "/provider-approval" },
-    { icon: Scale, label: "Tranh chấp", href: "/admin/disputes" },
+    { icon: Scale, label: "Tranh chấp", href: "/disputes" },
     { icon: FileText, label: "Giao dịch", href: "/transactions" },
     { icon: Tag, label: "Danh mục", href: "/categories" },
     { icon: BarChart3, label: "Báo cáo", href: "/reports" },

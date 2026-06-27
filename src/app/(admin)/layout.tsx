@@ -22,6 +22,7 @@ export default function AdminLayout({
         '/reports',
         '/users',
         '/disputes',
+        '/disputes/details',
     ];
 
     useEffect(() => {

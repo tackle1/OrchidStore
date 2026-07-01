@@ -2,10 +2,10 @@
 
 import ProviderNavbar from '../../common/navbar/provider_navbar';
 import ProviderSidebar from '../../common/sidebar/provider_sidebar';
-import CreateServicePackageForm from '../../form/create_service-packages_form';
+import ProposeAddonForm from '../../form/create_add-on_form';
 import { Suspense } from 'react';
 
-export default function CreateServicePackagesUI() {
+export default function CreateServicePackagesUI({ params }: { params: Promise<{ id: string }> }) {
 
     return (
         <div className="flex min-h-screen bg-[#F8F9FC]">
@@ -16,7 +16,7 @@ export default function CreateServicePackagesUI() {
             <div className="flex-1 flex flex-col">
                 <ProviderNavbar />
                 <Suspense fallback={<div className="p-6 text-center text-gray-500">Đang tải dữ liệu...</div>}>
-                    <CreateServicePackageForm />
+                    <ProposeAddonForm params={params} />
                 </Suspense>
             </div>
         </div>

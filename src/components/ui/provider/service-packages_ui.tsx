@@ -4,7 +4,15 @@ import ProviderNavbar from '../../common/navbar/provider_navbar';
 import ProviderSidebar from '../../common/sidebar/provider_sidebar';
 import ProviderMyServicesHeader from '../../common/header/provider-my-services_header';
 import ServicePackageCard from '../../layout/provider/service-package/service-package_card'
+import { useRouter } from 'next/navigation';
+
 export default function ServicePackagesUI() {
+    const router = useRouter();
+
+    const handleEdit = (packageData: any) => {
+        const queryString = new URLSearchParams({ data: JSON.stringify(packageData) }).toString();
+        router.push(`/service-packages/create?${queryString}`);
+    };
 
     return (
         <div className="flex min-h-screen bg-[#F8F9FC]">
@@ -32,7 +40,16 @@ export default function ServicePackagesUI() {
                             "Phí vận chuyển: Miễn phí < 10km"
                         ]}
                         buttonText="Chỉnh sửa"
-                        onEdit={() => console.log("Chỉnh sửa gói 1")}
+                        onEdit={() => handleEdit({
+                            id: "SP-001",
+                            name: "Chăm sóc lan Hồ Điệp định kỳ",
+                            packagePrice: 850000,
+                            duration: 3,
+                            reportFrequency: 'Hàng tuần',
+                            maxPlants: 2,
+                            shippingFee: 0,
+                            description: "Gói chăm sóc định kỳ chuyên sâu cho hoa lan Hồ Điệp."
+                        })}
                     />
 
                     {/* Card 2 */}
@@ -48,7 +65,16 @@ export default function ServicePackagesUI() {
                             "Phí vận chuyển: Có tính phí"
                         ]}
                         buttonText="Tiếp tục chỉnh sửa"
-                        onEdit={() => console.log("Tiếp tục chỉnh sửa gói 2")}
+                        onEdit={() => handleEdit({
+                            id: "SP-002",
+                            name: "Cứu cây yếu VIP",
+                            packagePrice: 1200000,
+                            duration: 1,
+                            reportFrequency: 'Hàng ngày',
+                            maxPlants: 1,
+                            shippingFee: 50000,
+                            description: "Dịch vụ cấp cứu chuyên sâu dành riêng cho cây yếu, cần theo dõi hàng ngày."
+                        })}
                     />
 
                     {/* Card 3 */}
@@ -64,7 +90,16 @@ export default function ServicePackagesUI() {
                             "Phí vận chuyển: Thỏa thuận"
                         ]}
                         buttonText="Chỉnh sửa"
-                        onEdit={() => console.log("Chỉnh sửa gói 3")}
+                        onEdit={() => handleEdit({
+                            id: "SP-003",
+                            name: "Kích mầm & Kích hoa",
+                            packagePrice: 500000,
+                            duration: 0,
+                            reportFrequency: 'Sau thực hiện',
+                            maxPlants: 5,
+                            shippingFee: 0,
+                            description: "Dịch vụ bón phân và chăm sóc kích mầm, kích hoa cho lan."
+                        })}
                     />
                 </div>
             </div>

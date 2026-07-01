@@ -1,7 +1,6 @@
 'use client';
 
-import { Calendar, FileText, Sprout, Truck } from 'lucide-react';
-
+import { Calendar, FileText, Sprout, Truck, ArrowRight } from 'lucide-react';
 interface ServicePackageCardProps {
     title: string;
     price: string;
@@ -47,7 +46,7 @@ export default function ServicePackageCard({
                         </>
                     ) : (
                         <>
-                            <span className="text-[13px]">→</span>
+                            <ArrowRight className="w-4 h-4" />
                             Draft
                         </>
                     )}

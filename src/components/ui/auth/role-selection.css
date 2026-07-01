@@ -1,0 +1,30 @@
+.role-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+}
+
+.role-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.role-card:hover {
+    border-color: #6366f1;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.admin-card {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .role-container {
+        grid-template-columns: 1fr;
+    }
+}

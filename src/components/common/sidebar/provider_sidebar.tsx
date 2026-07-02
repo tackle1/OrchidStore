@@ -20,9 +20,9 @@ export default function ProviderSidebar() {
     const menuItems = [
         { icon: LayoutGrid, label: "Bảng điều khiển", href: "/management-homepage" },
         { icon: ShoppingBasket, label: "Gói chăm sóc", href: "/service-packages" },
-        { icon: Store, label: "Nhà vườn liên kết", href: "/provider/partners" },
+        { icon: Store, label: "Nhà vườn liên kết", href: "/profile" },
         { icon: Flower2, label: "Lan của tôi", href: "/provider/my-orchids" },
-        { icon: History, label: "Lịch sử chăm sóc", href: "/provider/history" },
+        { icon: History, label: "Lịch sử chăm sóc", href: "/history-care_orders" },
         { icon: Sprout, label: "Hỗ trợ chuyên gia", href: "/provider/support" },
     ];
 
@@ -89,7 +89,7 @@ export default function ProviderSidebar() {
             {/* BOTTOM MENU */}
             <div className="mt-auto border-t border-[#E5E7EB] py-2">
                 <Link
-                    href="/provider/settings"
+                    href="/settings"
                     className="flex items-center gap-3 h-[40px] px-4 text-[#4B4453] hover:bg-[#F8F7FA] hover:text-[#1F2937] rounded-lg transition-colors"
                 >
                     <Settings size={17} />

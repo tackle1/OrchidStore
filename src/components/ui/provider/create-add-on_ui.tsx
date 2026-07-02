@@ -5,7 +5,7 @@ import ProviderSidebar from '../../common/sidebar/provider_sidebar';
 import ProposeAddonForm from '../../form/create_add-on_form';
 import { Suspense } from 'react';
 
-export default function CreateServicePackagesUI({ params }: { params: Promise<{ id: string }> }) {
+export default function CreateAddonUI({ params }: { params: Promise<{ id: string }> }) {
 
     return (
         <div className="flex min-h-screen bg-[#F8F9FC]">

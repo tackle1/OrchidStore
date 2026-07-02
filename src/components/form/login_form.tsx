@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { EyeOff, Eye, Flower2 } from 'lucide-react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import ForgetPasswordLink from '../../app/(auth)/forgot-password/forget_route';
 import { useLogin } from '../../hooks/useLogin';
 
@@ -163,10 +163,11 @@ export default function LoginForm() {
                         type="button"
                         className="mt-6 w-full h-[50px] border border-[#D9D3E5] rounded-[12px] bg-white hover:bg-[#FAFAFC] flex items-center justify-center gap-3 transition-all"
                     >
-                        <img
-                            src="https://www.svgrepo.com/show/475656/google-color.svg"
+                        <Image
+                            src="/assets/icons/google-logo.png"
                             alt="Google"
-                            className="w-[18px] h-[18px]"
+                            width={38}
+                            height={38}
                         />
 
                         <span className="text-[14px] font-semibold text-[#374151]">

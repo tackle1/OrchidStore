@@ -9,6 +9,7 @@ interface ServicePackageCardProps {
     status: 'Active' | 'Draft';
     buttonText: string;
     onEdit?: () => void;
+    onViewDetail?: () => void;
 }
 
 export default function ServicePackageCard({
@@ -19,6 +20,7 @@ export default function ServicePackageCard({
     status,
     buttonText,
     onEdit,
+    onViewDetail,
 }: ServicePackageCardProps) {
     const isActive = status === 'Active';
 
@@ -76,13 +78,23 @@ export default function ServicePackageCard({
                 ))}
             </div>
 
-            {/* Button */}
-            <button
-                onClick={onEdit}
-                className="w-full h-[44px] border border-[#7C3AED] text-[#7C3AED] rounded-xl text-[14px] font-semibold hover:bg-[#F5F3FF] active:bg-[#EDE9FE] transition-colors"
-            >
-                {buttonText}
-            </button>
+            {/* Actions */}
+            <div className="space-y-3 mt-auto">
+                {onViewDetail && (
+                    <button
+                        onClick={onViewDetail}
+                        className="w-full h-[44px] bg-[#F5F3FF] text-[#7C3AED] rounded-xl text-[14px] font-semibold hover:bg-[#EDE9FE] transition-colors"
+                    >
+                        Xem chi tiết
+                    </button>
+                )}
+                <button
+                    onClick={onEdit}
+                    className="w-full h-[44px] border border-[#7C3AED] text-[#7C3AED] rounded-xl text-[14px] font-semibold hover:bg-[#F5F3FF] active:bg-[#EDE9FE] transition-colors"
+                >
+                    {buttonText}
+                </button>
+            </div>
         </div>
     );
 }

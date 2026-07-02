@@ -18,6 +18,9 @@ export default function ProviderLayout({
     const providerRoutes = [
         '/management-homepage',
         '/service-packages',           // Bao gồm cả /service-packages/create
+        '/history-care_orders',
+        '/profile',
+        '/settings',
     ];
 
     useEffect(() => {

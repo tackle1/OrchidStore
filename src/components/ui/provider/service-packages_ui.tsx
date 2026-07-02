@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 
 export default function ServicePackagesUI() {
     const router = useRouter();
-
+    
     const handleEdit = (packageData: any) => {
         const queryString = new URLSearchParams({ data: JSON.stringify(packageData) }).toString();
         router.push(`/service-packages/create?${queryString}`);
@@ -40,6 +40,7 @@ export default function ServicePackagesUI() {
                             "Phí vận chuyển: Miễn phí < 10km"
                         ]}
                         buttonText="Chỉnh sửa"
+                        onViewDetail={() => router.push(`/service-packages/SP-001`)}
                         onEdit={() => handleEdit({
                             id: "SP-001",
                             name: "Chăm sóc lan Hồ Điệp định kỳ",
@@ -65,6 +66,7 @@ export default function ServicePackagesUI() {
                             "Phí vận chuyển: Có tính phí"
                         ]}
                         buttonText="Tiếp tục chỉnh sửa"
+                        onViewDetail={() => router.push(`/service-packages/SP-002`)}
                         onEdit={() => handleEdit({
                             id: "SP-002",
                             name: "Cứu cây yếu VIP",
@@ -90,6 +92,7 @@ export default function ServicePackagesUI() {
                             "Phí vận chuyển: Thỏa thuận"
                         ]}
                         buttonText="Chỉnh sửa"
+                        onViewDetail={() => router.push(`/service-packages/SP-003`)}
                         onEdit={() => handleEdit({
                             id: "SP-003",
                             name: "Kích mầm & Kích hoa",

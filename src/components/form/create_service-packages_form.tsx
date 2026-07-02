@@ -208,21 +208,6 @@ export default function CreateServicePackageForm() {
 
                 {/* Action Buttons */}
                 <div className="flex justify-between items-center pt-4">
-                    {formData.id && (
-                        <button
-                            type="button"
-                            onClick={() => {
-                                const queryString = new URLSearchParams({
-                                    packageName: formData.name,
-                                    data: JSON.stringify(formData)
-                                }).toString();
-                                router.push(`/service-packages/${formData.id}/add-on?${queryString}`);
-                            }}
-                            className="px-6 py-3 border border-[#7C3AED] text-[#7C3AED] font-semibold rounded-xl hover:bg-[#F5F3FF]"
-                        >
-                            + Thêm Add-on
-                        </button>
-                    )}
                     <div className="flex justify-end gap-3 ml-auto">
                         <button
                             type="button"

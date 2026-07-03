@@ -1,7 +1,17 @@
 import React from 'react';
 import { Info } from 'lucide-react';
 
-export default function DisputeInfo() {
+interface DisputeInfoProps {
+    customer?: {
+        name: string;
+        initials: string;
+        bgColor: string;
+        textColor: string;
+    };
+    orchidType?: string;
+}
+
+export default function DisputeInfo({ customer, orchidType }: DisputeInfoProps) {
     return (
         <div className="w-full lg:w-[320px] flex-shrink-0">
             <div className="bg-white rounded-[20px] p-6 shadow-sm border border-[#E5E7EB] h-full">
@@ -20,15 +30,26 @@ export default function DisputeInfo() {
                     <div className="pb-4 border-b border-[#F3F4F6]">
                         <div className="text-[13px] text-[#6B7280] mb-2">Khách hàng</div>
                         <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded-full bg-[#10B981] text-white flex items-center justify-center text-[10px] font-bold">
-                                NB
-                            </div>
-                            <span className="font-medium text-[#1F2937] text-[14px]">Nguyễn Trần Bảo</span>
+                            {customer ? (
+                                <>
+                                    <div className={`w-6 h-6 rounded-full ${customer.bgColor} ${customer.textColor} flex items-center justify-center text-[10px] font-bold`}>
+                                        {customer.initials}
+                                    </div>
+                                    <span className="font-medium text-[#1F2937] text-[14px]">{customer.name}</span>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="w-6 h-6 rounded-full bg-[#10B981] text-white flex items-center justify-center text-[10px] font-bold">
+                                        NB
+                                    </div>
+                                    <span className="font-medium text-[#1F2937] text-[14px]">Nguyễn Trần Bảo</span>
+                                </>
+                            )}
                         </div>
                     </div>
                     <div className="pb-4 border-b border-[#F3F4F6]">
                         <div className="text-[13px] text-[#6B7280] mb-1">Đối tượng (Lan)</div>
-                        <div className="font-bold text-[#6D28D9] text-[14px]">Phi Điệp 5 Cánh Trắng (Chậu A2)</div>
+                        <div className="font-bold text-[#6D28D9] text-[14px]">{orchidType || "Phi Điệp 5 Cánh Trắng (Chậu A2)"}</div>
                     </div>
                     <div>
                         <div className="text-[13px] text-[#6B7280] mb-1">Phân loại</div>

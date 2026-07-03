@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowLeft, RefreshCw, Shield } from 'lucide-react';
-import ForgotPasswordForm from '../../components/form/forgot_password_form';
+import ForgotPasswordForm from '../../../form/forgot_password_form';
 import Link from 'next/link';
 
 export default function ForgotPasswordUI() {

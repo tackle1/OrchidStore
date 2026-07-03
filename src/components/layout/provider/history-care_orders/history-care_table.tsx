@@ -1,5 +1,5 @@
 import React from 'react';
-import { EllipsisVertical } from 'lucide-react';
+import { EllipsisVertical, EyeIcon } from 'lucide-react';
 import Link from 'next/link';
 
 interface HistoryCareTableProps {
@@ -55,19 +55,10 @@ export default function HistoryCareTable({ orders }: HistoryCareTableProps) {
                             {/* Dropdown Menu */}
                             <div className="absolute right-0 top-full mt-1 w-40 bg-white border border-[#E5E7EB] rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
                                 <div className="p-1">
-                                    {order.status.label === "Chờ check-in" && (
-                                        <Link href={`/history-care_orders/${order.id}/check-in`} className="block px-4 py-2 text-sm text-[#1F2937] font-medium hover:bg-[#F3E8FF] hover:text-[#6D28D9] rounded-lg transition-colors">
-                                            Check-in đơn
-                                        </Link>
-                                    )}
-                                    {order.status.label === "Tranh chấp" && (
-                                        <Link href={`/history-care_orders/${order.id}/dispute`} className="block px-4 py-2 text-sm text-[#1F2937] font-medium hover:bg-[#FEE2E2] hover:text-[#DC2626] rounded-lg transition-colors">
-                                            Phản hồi tranh chấp
-                                        </Link>
-                                    )}
-                                    <div className="block px-4 py-2 text-sm text-[#1F2937] font-medium hover:bg-gray-100 rounded-lg transition-colors">
+                                    <Link href={`/history-care_orders/${order.id}`} className="block px-4 py-2 text-sm text-[#1F2937] font-medium hover:bg-gray-100 rounded-lg transition-colors">
                                         Xem chi tiết
-                                    </div>
+                                        <EyeIcon className="w-4 h-4 inline-block ml-2" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>

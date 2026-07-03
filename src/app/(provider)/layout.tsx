@@ -21,6 +21,7 @@ export default function ProviderLayout({
         '/history-care_orders',
         '/profile',
         '/settings',
+        '/my-orchids',                 // Bao gồm cả /my-orchids/:id
     ];
 
     useEffect(() => {

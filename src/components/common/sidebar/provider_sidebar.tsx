@@ -21,7 +21,7 @@ export default function ProviderSidebar() {
         { icon: LayoutGrid, label: "Bảng điều khiển", href: "/management-homepage" },
         { icon: ShoppingBasket, label: "Gói chăm sóc", href: "/service-packages" },
         { icon: Store, label: "Nhà vườn liên kết", href: "/profile" },
-        { icon: Flower2, label: "Lan của tôi", href: "/provider/my-orchids" },
+        { icon: Flower2, label: "Lan của tôi", href: "/my-orchids" },
         { icon: History, label: "Lịch sử chăm sóc", href: "/history-care_orders" },
         { icon: Sprout, label: "Hỗ trợ chuyên gia", href: "/provider/support" },
     ];
